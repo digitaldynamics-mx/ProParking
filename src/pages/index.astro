@@ -21,7 +21,7 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href={`${b}/`} class="flex items-center gap-2.5 flex-shrink-0">
         <img
-          src={`${b}/brand/proparking-isotipo-color.svg.png`}
+          src={`${b}/brand/Logo.png`}
           alt="ProParking Digital Partner"
           class="h-14 w-auto"
           style="mix-blend-mode: multiply;"
@@ -83,15 +83,158 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 
       </div>
 
-      <!-- Hero photo -->
+      <!-- Hero animated mockup -->
       <div class="animate-fade-up delay-200 flex justify-center md:justify-end">
-        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,.7)]" style="width:480px; height:440px; max-width:100%;">
-          <img
-            src="https://images.unsplash.com/photo-1762599107234-6373d3467d25?w=960&q=85&auto=format&fit=crop"
-            alt="Servicio de valet profesional en entrada de hotel"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#2C2C2A]/70 via-[#2C2C2A]/10 to-transparent"></div>
+        <div class="relative" style="width:480px; height:440px; max-width:100%;">
+
+          <!-- Ambient glow -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260px;height:340px;background:radial-gradient(ellipse at center,rgba(29,158,117,.13) 0%,transparent 70%);pointer-events:none;"></div>
+
+          <!-- Phone frame -->
+          <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:248px;height:402px;background:#111110;border-radius:26px;border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 80px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.06);overflow:hidden;display:flex;flex-direction:column;">
+
+            <!-- App chrome bar -->
+            <div style="background:#0e0e0d;padding:10px 14px 8px;display:flex;align-items:center;gap:6px;flex-shrink:0;">
+              <div style="display:flex;gap:4px;">
+                <div style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.15);"></div>
+                <div style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.15);"></div>
+                <div style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.15);"></div>
+              </div>
+              <div style="flex:1;text-align:center;">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#888780;letter-spacing:.12em;">ProParking</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:3px;">
+                <div class="fob-led" style="width:5px;height:5px;border-radius:50%;background:#1D9E75;"></div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#1D9E75;">vivo</span>
+              </div>
+            </div>
+
+            <!-- Screen -->
+            <div style="flex:1;background:#F1EFE8;padding:12px 11px;display:flex;flex-direction:column;gap:9px;overflow:hidden;">
+
+              <p style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#888780;letter-spacing:.18em;text-transform:uppercase;">Ticket activo</p>
+
+              <!-- Ticket card -->
+              <div style="background:white;border-radius:12px;padding:11px;border:1px solid rgba(44,44,42,.08);flex:1;display:flex;flex-direction:column;gap:9px;">
+
+                <!-- Header -->
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                  <div>
+                    <p style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500;color:#D85A30;line-height:1;">#4821</p>
+                    <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:#2C2C2A;font-weight:600;margin-top:2px;">Toyota Camry</p>
+                    <p style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#888780;margin-top:1px;">GZA-18-40 · Plata</p>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:3px;background:#DCFCE7;padding:3px 8px;border-radius:20px;flex-shrink:0;">
+                    <div class="fob-led" style="width:5px;height:5px;border-radius:50%;background:#1D9E75;"></div>
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:#1D9E75;font-weight:500;">Activo</span>
+                  </div>
+                </div>
+
+                <!-- QR code -->
+                <div style="position:relative;background:#F8F7F4;border-radius:8px;padding:8px;display:flex;justify-content:center;align-items:center;overflow:hidden;">
+                  <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="3" stroke="#2C2C2A" stroke-width="2.5"/>
+                    <rect x="7" y="7" width="10" height="10" rx="1.5" fill="#2C2C2A"/>
+                    <rect x="50" y="2" width="20" height="20" rx="3" stroke="#2C2C2A" stroke-width="2.5"/>
+                    <rect x="55" y="7" width="10" height="10" rx="1.5" fill="#2C2C2A"/>
+                    <rect x="2" y="50" width="20" height="20" rx="3" stroke="#2C2C2A" stroke-width="2.5"/>
+                    <rect x="7" y="55" width="10" height="10" rx="1.5" fill="#2C2C2A"/>
+                    <rect x="26" y="2" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="34" y="2" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="42" y="2" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="26" y="9" width="5" height="5" rx="1" fill="#D85A30"/>
+                    <rect x="42" y="9" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="30" y="16" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="38" y="16" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="2" y="26" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="9" y="26" width="5" height="5" rx="1" fill="#1D9E75"/>
+                    <rect x="16" y="26" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="26" y="26" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="34" y="26" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="42" y="26" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="50" y="26" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="58" y="26" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="65" y="26" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="2" y="34" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="16" y="34" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="26" y="34" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="42" y="34" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="50" y="34" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="65" y="34" width="5" height="5" rx="1" fill="#D85A30"/>
+                    <rect x="34" y="50" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="42" y="50" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="50" y="50" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="58" y="50" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="65" y="50" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="26" y="58" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="34" y="58" width="5" height="5" rx="1" fill="#1D9E75"/>
+                    <rect x="50" y="58" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="65" y="58" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="26" y="65" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="42" y="65" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                    <rect x="58" y="65" width="5" height="5" rx="1" fill="#2C2C2A"/>
+                  </svg>
+                  <!-- Scan beam -->
+                  <div class="hero-scan" style="position:absolute;left:8px;right:8px;height:1.5px;background:linear-gradient(90deg,transparent,#D85A30 30%,#D85A30 70%,transparent);border-radius:1px;pointer-events:none;"></div>
+                </div>
+
+                <!-- Valetero + amount -->
+                <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+                  <div>
+                    <p style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:#888780;text-transform:uppercase;letter-spacing:.1em;">Valetero</p>
+                    <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:#2C2C2A;font-weight:600;margin-top:1px;">Pedro Ríos</p>
+                  </div>
+                  <div style="text-align:right;">
+                    <p style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:#888780;text-transform:uppercase;letter-spacing:.1em;">Cobrado</p>
+                    <p style="font-family:'JetBrains Mono',monospace;font-size:15px;color:#2C2C2A;font-weight:500;margin-top:1px;line-height:1;">$80 <span style="font-size:9px;color:#888780;">MXN</span></p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Action buttons -->
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+                <div style="background:#2C2C2A;border-radius:8px;padding:8px;text-align:center;">
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;color:white;font-weight:600;">Entregar auto</span>
+                </div>
+                <div style="background:white;border-radius:8px;padding:8px;text-align:center;border:1px solid rgba(44,44,42,.1);">
+                  <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;color:#2C2C2A;font-weight:600;">Ver fotos</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Floating badge: ✓ Ticket cerrado (top-right) -->
+          <div class="hero-float-a" style="position:absolute;top:22px;right:2px;z-index:10;">
+            <div class="hero-badge-a" style="background:white;border-radius:10px;padding:7px 10px;box-shadow:0 8px 24px rgba(0,0,0,.22);border:1px solid rgba(29,158,117,.2);min-width:120px;">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="width:18px;height:18px;border-radius:50%;background:#DCFCE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <span style="font-size:9px;color:#1D9E75;font-weight:700;">✓</span>
+                </div>
+                <div>
+                  <p style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#1D9E75;font-weight:500;line-height:1;white-space:nowrap;">Ticket cerrado</p>
+                  <p style="font-family:'JetBrains Mono',monospace;font-size:7px;color:#888780;margin-top:2px;white-space:nowrap;">hace 2 min · #4820</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badge: $80 cobrado (bottom-left) -->
+          <div class="hero-float-b" style="position:absolute;bottom:40px;left:2px;z-index:10;">
+            <div class="hero-badge-b" style="background:white;border-radius:10px;padding:7px 10px;box-shadow:0 8px 24px rgba(0,0,0,.22);border:1px solid rgba(216,90,48,.18);min-width:110px;">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="width:18px;height:18px;border-radius:50%;background:#FEE2D5;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <span style="font-size:10px;color:#D85A30;font-weight:700;">$</span>
+                </div>
+                <div>
+                  <p style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#D85A30;font-weight:500;line-height:1;white-space:nowrap;">$80 cobrado</p>
+                  <p style="font-family:'JetBrains Mono',monospace;font-size:7px;color:#888780;margin-top:2px;white-space:nowrap;">Efectivo · hoy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -599,7 +742,7 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
         <!-- Logo + tagline -->
         <div>
           <img
-            src={`${b}/brand/proparking-isotipo-color.svg.png`}
+            src={`${b}/brand/Logo.png`}
             alt="ProParking"
             class="h-10 w-auto mb-3"
             style="mix-blend-mode: lighten; opacity: 0.88;"
