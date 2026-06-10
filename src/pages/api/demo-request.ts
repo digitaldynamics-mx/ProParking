@@ -1,10 +1,6 @@
-import type { APIRoute } from 'astro';
+export const prerender = false;
 
-export const GET: APIRoute = () =>
-  new Response(JSON.stringify({ ok: false, error: 'Method not allowed' }), {
-    status: 405,
-    headers: { 'Content-Type': 'application/json' },
-  });
+import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
 const TO = 'proparkingdigitalpartner@gmail.com';
