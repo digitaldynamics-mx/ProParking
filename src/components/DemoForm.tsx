@@ -89,12 +89,18 @@ export default function DemoForm() {
     }
     setStatus('submitting');
     try {
-      const res = await fetch('/api/demo-request', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(fields),
+        body: JSON.stringify({
+          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY,
+          subject: `Demo request — ${fields.negocio} (${fields.tipo})`,
+          from_name: 'ProParking Landing',
+          ...fields,
+        }),
       });
-      if (res.ok) {
+      const data = await res.json();
+      if (data.success) {
         setStatus('success');
       } else {
         setStatus('error');
