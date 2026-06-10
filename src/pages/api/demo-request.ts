@@ -47,16 +47,27 @@ export const POST: APIRoute = async ({ request }) => {
     const apiKey = import.meta.env.RESEND_API_KEY;
 
     if (!apiKey) {
-      console.warn('[demo-request] RESEND_API_KEY not set — email not sent.');
-    } else {
-      const resend = new Resend(apiKey);
-      const { error } = await resend.emails.send({
-        from: 'ProParking <onboarding@resend.dev>',
-        to: [TO],
-        subject: `Demo request — ${body.negocio ?? 'Sin nombre'} (${body.tipo ?? ''})`,
-        html: buildHtml(body),
+      console.error('[demo-request] RESEND_API_KEY not set');
+      return new Response(JSON.stringify({ ok: false, error: 'missing_key' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
       });
-      if (error) console.error('[demo-request] Resend error:', error);
+    }
+
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from: 'ProParking <onboarding@resend.dev>',
+      to: [TO],
+      subject: `Demo request — ${body.negocio ?? 'Sin nombre'} (${body.tipo ?? ''})`,
+      html: buildHtml(body),
+    });
+
+    if (error) {
+      console.error('[demo-request] Resend error:', error);
+      return new Response(JSON.stringify({ ok: false, error: error.message }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     return new Response(JSON.stringify({ ok: true }), {
