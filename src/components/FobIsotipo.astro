@@ -1,0 +1,60 @@
+---
+interface Props {
+  variant?: 'hero' | 'marker';
+  class?: string;
+}
+const { variant = 'hero', class: className = '' } = Astro.props;
+const isHero = variant === 'hero';
+// hero ≈ 200px wide  |  marker ≈ 22px wide
+const W = isHero ? 200 : 22;
+const H = isHero ? 350 : 38;
+---
+
+<span class:list={['inline-block select-none', className]} aria-hidden="true">
+  <svg
+    viewBox="0 0 100 175"
+    width={W}
+    height={H}
+    xmlns="http://www.w3.org/2000/svg"
+    focusable="false"
+  >
+    <!-- Keyring -->
+    <circle cx="50" cy="14" r="11" fill="none" stroke="#888780" stroke-width="4.5"/>
+
+    <!-- Fob body – depth shadow -->
+    <rect x="8" y="24" width="86" height="146" rx="22" fill="#1a1a18"/>
+
+    <!-- Fob body -->
+    <rect x="6" y="22" width="88" height="147" rx="22" fill="#2C2C2A"/>
+
+    <!-- Inner border (dimensionality) -->
+    <rect x="9" y="25" width="82" height="141" rx="19"
+          fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="1.5"/>
+
+    <!-- Coral P button – outer ring -->
+    <circle cx="50" cy="83" r="30" fill="rgba(216,90,48,0.18)"/>
+
+    <!-- Coral P button -->
+    <circle cx="50" cy="83" r="26" fill="#D85A30"/>
+
+    <!-- P letterform -->
+    <text
+      x="50.5" y="94.5"
+      text-anchor="middle"
+      fill="white"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="29"
+      font-weight="700"
+      letter-spacing="-1"
+    >P</text>
+
+    <!-- LED dot -->
+    <circle
+      cx="50"
+      cy="149"
+      r={isHero ? 6 : 4}
+      fill="#1D9E75"
+      class={isHero ? 'fob-led' : ''}
+    />
+  </svg>
+</span>

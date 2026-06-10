@@ -1,0 +1,648 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FobIsotipo from '../components/FobIsotipo.astro';
+import MobileMenu from '../components/MobileMenu.tsx';
+import HowItWorks from '../components/HowItWorks.tsx';
+import Stats from '../components/Stats.tsx';
+import DemoForm from '../components/DemoForm.tsx';
+import FAQ from '../components/FAQ.tsx';
+---
+
+<Layout
+  title="ProParking · Digital Partner — Valet profesional para restaurantes, hoteles y plazas"
+  description="Sistema de valet parking trazable para negocios en México. QR por llave, control de efectivo, fotos de daños y administración web en tiempo real."
+>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <header class="sticky top-0 z-40 bg-[#F1EFE8]/96 backdrop-blur-sm border-b border-[#2C2C2A]/8">
+    <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href={import.meta.env.BASE_URL} class="flex items-center gap-2.5 flex-shrink-0">
+        <img
+          src={`${import.meta.env.BASE_URL}brand/proparking-isotipo-color.svg.png`}
+          alt="ProParking Digital Partner"
+          class="h-14 w-auto"
+          style="mix-blend-mode: multiply;"
+        />
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#como-funciona"   class="text-[#2C2C2A]/55 hover:text-[#2C2C2A] text-sm transition">Cómo funciona</a>
+        <a href="#para-el-dueno"   class="text-[#2C2C2A]/55 hover:text-[#2C2C2A] text-sm transition">Panel admin</a>
+        <a href="#resultados"      class="text-[#2C2C2A]/55 hover:text-[#2C2C2A] text-sm transition">Resultados</a>
+        <a href="#precios"         class="text-[#2C2C2A]/55 hover:text-[#2C2C2A] text-sm transition">Precios</a>
+        <a href="#demo"            class="bg-[#D85A30] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[#c04f28] transition rounded-sm">
+          Solicitar demo
+        </a>
+      </div>
+      <MobileMenu client:load />
+    </nav>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO
+  ═══════════════════════════════════════════ -->
+  <section class="bg-[#2C2C2A] overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-[1fr_auto] gap-12 md:gap-20 items-center">
+
+      <!-- Copy -->
+      <div class="animate-fade-up">
+        <p class="font-mono text-[#888780] text-[11px] tracking-[.25em] uppercase mb-8">
+          Valet parking · Hecho en México
+        </p>
+
+        <h1
+          class="font-serif italic text-[#F1EFE8] leading-[1.08] mb-6"
+          style="font-size: clamp(2.6rem, 5.2vw, 4rem);"
+        >
+          El valet de tu negocio,<br/>
+          profesional desde<br/>
+          el primer auto.
+        </h1>
+
+        <p class="text-[#888780] text-lg leading-relaxed max-w-md mb-10">
+          ProParking convierte tu operación de valet en un servicio trazable, controlado y sin sorpresas — sin capacitar a tu equipo desde cero.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-9">
+          <a
+            href="#demo"
+            class="bg-[#D85A30] text-white px-7 py-3.5 font-semibold hover:bg-[#c04f28] transition rounded-sm text-sm tracking-wide"
+          >
+            Solicitar demo
+          </a>
+          <a
+            href="#como-funciona"
+            class="border border-[#888780]/35 text-[#888780] px-7 py-3.5 font-semibold hover:border-[#F1EFE8]/35 hover:text-[#F1EFE8] transition rounded-sm text-sm tracking-wide"
+          >
+            Ver cómo funciona
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Hero photo -->
+      <div class="animate-fade-up delay-200 flex justify-center md:justify-end">
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,.7)]" style="width:480px; height:440px; max-width:100%;">
+          <img
+            src="https://images.unsplash.com/photo-1762599107234-6373d3467d25?w=960&q=85&auto=format&fit=crop"
+            alt="Servicio de valet profesional en entrada de hotel"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2C2C2A]/70 via-[#2C2C2A]/10 to-transparent"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="h-px bg-gradient-to-r from-transparent via-[#888780]/15 to-transparent"></div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       2. PROBLEMA
+  ═══════════════════════════════════════════ -->
+  <section class="bg-[#F1EFE8] py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Section marker -->
+      <div class="flex items-center gap-3 mb-14">
+        <FobIsotipo variant="marker" />
+        <p class="font-mono text-[#888780] text-[11px] tracking-[.22em] uppercase">El problema</p>
+      </div>
+
+      <div class="space-y-0 divide-y divide-[#2C2C2A]/8">
+        {[
+          {
+            stat: '$180,000',
+            statSub: 'pesos al año',
+            text: 'Cada año pierdes ese promedio en faltantes de caja que nadie puede explicar.',
+          },
+          {
+            stat: '1 de 3',
+            statSub: 'reclamos',
+            text: 'Cuando un cliente reclama un rayón, no tienes evidencia. Y acabas pagando.',
+          },
+          {
+            stat: '15 min',
+            statSub: 'de espera',
+            text: 'Cuando llueve, esperan 15 minutos por su auto. Y no vuelven.',
+          },
+        ].map(({ stat, statSub, text }) => (
+          <div class="grid lg:grid-cols-[280px_1fr] gap-6 lg:gap-12 py-12 items-start lg:items-center group">
+            <div>
+              <p
+                class="font-serif italic text-[#D85A30] leading-none"
+                style="font-size: clamp(2.8rem, 6vw, 4.2rem);"
+              >
+                {stat}
+              </p>
+              <p class="font-mono text-[#888780] text-xs tracking-wide mt-1">{statSub}</p>
+            </div>
+            <p class="text-[#2C2C2A] text-xl md:text-2xl font-medium leading-snug max-w-xl">
+              {text}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       3. CÓMO FUNCIONA — SLIDER
+  ═══════════════════════════════════════════ -->
+  <section id="como-funciona" class="bg-[#2C2C2A] py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Section marker -->
+      <div class="flex items-center gap-3 mb-5">
+        <FobIsotipo variant="marker" class="opacity-60" />
+        <p class="font-mono text-[#888780] text-[11px] tracking-[.22em] uppercase">Cómo funciona</p>
+      </div>
+
+      <h2
+        class="font-serif italic text-[#F1EFE8] mb-14"
+        style="font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.15;"
+      >
+        Cinco pasos.<br/>Un servicio impecable.
+      </h2>
+
+      <HowItWorks client:load />
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       4. PARA EL DUEÑO — PANEL ADMIN
+  ═══════════════════════════════════════════ -->
+  <section id="para-el-dueno" class="bg-[#2C2C2A] py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Section marker -->
+      <div class="flex items-center gap-3 mb-5">
+        <FobIsotipo variant="marker" class="opacity-60" />
+        <p class="font-mono text-[#888780] text-[11px] tracking-[.22em] uppercase">Para el dueño</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+
+        <!-- Benefits list -->
+        <div>
+          <h2
+            class="font-serif italic text-[#F1EFE8] mb-5"
+            style="font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.15;"
+          >
+            Tú lo ves todo.<br/>En tiempo real.
+          </h2>
+          <p class="text-[#888780] text-lg leading-relaxed mb-10">
+            El panel web de administrador te da visibilidad completa de tu operación, desde cualquier lugar.
+          </p>
+
+          <ul class="space-y-6">
+            {[
+              'Saber cuánto ingresó cada punto cada día.',
+              'Ver quién trabajó dónde y cuándo.',
+              'Encontrar cualquier vehículo en segundos.',
+              'Auditoría completa disponible para casos legales.',
+            ].map((item) => (
+              <li class="flex items-start gap-4">
+                <span class="w-5 h-5 rounded-full border border-[#1D9E75]/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#1D9E75] block"></span>
+                </span>
+                <span class="text-[#F1EFE8]/80 leading-snug">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Dashboard mockup -->
+        <div class="rounded-xl overflow-hidden border border-white/8 shadow-[0_40px_80px_rgba(0,0,0,.5)]">
+
+          <!-- Browser chrome -->
+          <div class="bg-[#1a1a18] px-4 py-2.5 flex items-center gap-3 border-b border-white/5">
+            <div class="flex gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-white/15"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-white/15"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-white/15"></div>
+            </div>
+            <div class="flex-1 bg-white/5 rounded px-3 py-1">
+              <span class="font-mono text-[#888780] text-[10px]">admin.proparking.mx/tablero</span>
+            </div>
+          </div>
+
+          <!-- App shell -->
+          <div class="flex bg-[#F8F7F4]" style="min-height: 420px;">
+
+            <!-- Sidebar -->
+            <div class="w-44 bg-[#2C2C2A] flex flex-col flex-shrink-0">
+              <div class="px-4 py-4 border-b border-white/5">
+                <span class="font-mono text-[#F1EFE8] text-xs font-medium tracking-wider">ProParking</span>
+              </div>
+              <nav class="px-2 py-3 space-y-0.5 flex-1">
+                {[
+                  { label: 'Tablero', active: true },
+                  { label: 'Tickets', active: false },
+                  { label: 'Empleados', active: false },
+                  { label: 'Reportes', active: false },
+                  { label: 'Puntos', active: false },
+                ].map(({ label, active }) => (
+                  <div class={`px-3 py-2 rounded-lg text-xs font-medium ${active ? 'bg-white/10 text-white' : 'text-[#888780] hover:text-white'}`}>
+                    {label}
+                  </div>
+                ))}
+              </nav>
+              <div class="px-4 py-3 border-t border-white/5">
+                <div class="flex items-center gap-2">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#1D9E75] animate-pulse"></div>
+                  <span class="font-mono text-[#888780] text-[9px]">En vivo</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main -->
+            <div class="flex-1 flex flex-col overflow-hidden">
+
+              <!-- Header -->
+              <div class="px-5 py-3.5 border-b border-[#2C2C2A]/8 flex items-center justify-between bg-white">
+                <div>
+                  <p class="font-semibold text-[#2C2C2A] text-sm">Tablero general</p>
+                  <p class="font-mono text-[#888780] text-[10px]">Martes 10 jun 2026</p>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#1D9E75]"></div>
+                  <span class="font-mono text-[#1D9E75] text-[10px]">en vivo</span>
+                </div>
+              </div>
+
+              <!-- KPI cards -->
+              <div class="grid grid-cols-4 gap-2 px-4 py-3">
+                {[
+                  { label: 'Ingresos hoy',     value: '$8,400', sub: '+12% vs ayer',  coral: true },
+                  { label: 'Vehículos',         value: '47',     sub: '8 en patio'                 },
+                  { label: 'Empleados',         value: '5',      sub: 'activos ahora'               },
+                  { label: 'Tickets abiertos',  value: '12',     sub: '3 en espera'                 },
+                ].map(({ label, value, sub, coral }) => (
+                  <div class="bg-white rounded-lg p-3 border border-[#2C2C2A]/6">
+                    <p class="font-mono text-[#888780] text-[8px] tracking-wider uppercase mb-1">{label}</p>
+                    <p class={`font-mono font-medium text-base leading-none ${coral ? 'text-[#D85A30]' : 'text-[#2C2C2A]'}`}>{value}</p>
+                    <p class="font-mono text-[#1D9E75] text-[8px] mt-1">{sub}</p>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Tickets table -->
+              <div class="px-4 flex-1 overflow-hidden">
+                <p class="font-mono text-[#888780] text-[9px] tracking-widest uppercase mb-2">Últimos tickets</p>
+                <div class="bg-white rounded-lg border border-[#2C2C2A]/6 overflow-hidden">
+                  <table class="w-full text-[10px]">
+                    <thead>
+                      <tr class="border-b border-[#2C2C2A]/6">
+                        {['#', 'Vehículo', 'Empleado', 'Monto', 'Estado'].map((h) => (
+                          <th class="font-mono text-[#888780] text-left px-3 py-2 font-medium">{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { n: '4821', v: 'Toyota Camry',   e: 'Pedro R.', m: '$80',  active: true  },
+                        { n: '4820', v: 'Audi Q5',        e: 'María L.', m: '$100', active: true  },
+                        { n: '4819', v: 'VW Jetta',       e: 'Juan M.',  m: '$60',  active: false },
+                        { n: '4818', v: 'Chevrolet Trax', e: 'Ana G.',   m: '$80',  active: false },
+                      ].map(({ n, v, e, m, active }) => (
+                        <tr class="border-b border-[#2C2C2A]/4 last:border-0">
+                          <td class="font-mono text-[#D85A30] px-3 py-2">#{n}</td>
+                          <td class="text-[#2C2C2A] px-3 py-2">{v}</td>
+                          <td class="text-[#888780] px-3 py-2">{e}</td>
+                          <td class="font-mono text-[#2C2C2A] px-3 py-2">{m}</td>
+                          <td class="px-3 py-2">
+                            <span class={`flex items-center gap-1 ${active ? 'text-[#1D9E75]' : 'text-[#888780]'}`}>
+                              <span class={`w-1.5 h-1.5 rounded-full ${active ? 'bg-[#1D9E75]' : 'bg-[#888780]/40'}`}></span>
+                              {active ? 'Activo' : 'Entregado'}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       5. STATS — ANIMATED
+  ═══════════════════════════════════════════ -->
+  <section id="resultados" class="bg-[#2C2C2A] py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="flex items-center gap-3 mb-5">
+        <FobIsotipo variant="marker" class="opacity-60" />
+        <p class="font-mono text-[#888780] text-[11px] tracking-[.22em] uppercase">Resultados</p>
+      </div>
+
+      <h2
+        class="font-serif italic text-[#F1EFE8] mb-14"
+        style="font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.15;"
+      >
+        Las cifras hablan.
+      </h2>
+
+      <Stats client:visible />
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       6. PRECIOS
+  ═══════════════════════════════════════════ -->
+  <section id="precios" class="bg-[#F1EFE8] py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="flex items-center gap-3 mb-5">
+        <FobIsotipo variant="marker" />
+        <p class="font-mono text-[#888780] text-[11px] tracking-[.22em] uppercase">Paquetes</p>
+      </div>
+
+      <h2
+        class="font-serif italic text-[#2C2C2A] mb-4"
+        style="font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.15;"
+      >
+        Precio claro.<br/>Sin sorpresas.
+      </h2>
+      <p class="text-[#888780] text-lg leading-relaxed max-w-xl mb-14">
+        Una licencia base y activación de dispositivos por separado — pagas exactamente lo que operas.
+      </p>
+
+      <!-- Cards -->
+      <div class="grid md:grid-cols-3 gap-6 items-stretch">
+
+        <!-- Licencia Master — featured -->
+        <div class="bg-[#2C2C2A] rounded-2xl p-8 flex flex-col">
+          <div class="mb-6">
+            <p class="font-mono text-[#888780] text-[10px] tracking-[.22em] uppercase mb-3">Base · Requerida</p>
+            <h3 class="font-serif italic text-[#F1EFE8] text-2xl leading-snug mb-2">Licencia Master</h3>
+            <p class="text-[#888780] text-sm leading-relaxed">
+              Acceso completo al panel web de administración y a la app de operación.
+            </p>
+          </div>
+
+          <div class="mb-8">
+            <div class="flex items-end gap-2">
+              <span class="font-mono text-[#D85A30] leading-none" style="font-size: 2.6rem;">$3,499</span>
+              <span class="font-mono text-[#888780] text-sm mb-1.5">MXN / mes</span>
+            </div>
+          </div>
+
+          <ul class="space-y-3.5 flex-1 mb-8">
+            {[
+              { label: 'Panel administrador web',         ok: true  },
+              { label: 'Reloj checador',                  ok: true  },
+              { label: 'Alta de puntos valet',            ok: true  },
+              { label: 'Activación de dispositivos',      ok: true  },
+              { label: 'Auditoría de caja',               ok: true  },
+              { label: 'Resguardo 4D fotográfico',        ok: true  },
+              { label: 'Autos ilimitados',                ok: true  },
+              { label: 'Dispositivos',                    ok: false },
+              { label: 'Plan de datos',                   ok: false },
+            ].map(({ label, ok }) => (
+              <li class="flex items-start gap-3">
+                {ok ? (
+                  <span class="w-4 h-4 rounded-full border border-[#1D9E75]/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#1D9E75] block"></span>
+                  </span>
+                ) : (
+                  <span class="font-mono text-[#888780]/35 text-sm leading-none mt-0.5 flex-shrink-0 w-4 text-center">—</span>
+                )}
+                <span class={`text-sm leading-snug ${ok ? 'text-[#F1EFE8]/80' : 'text-[#888780]/40 line-through'}`}>
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#demo"
+            class="bg-[#D85A30] text-white text-center px-6 py-3.5 rounded-sm font-semibold text-sm hover:bg-[#c04f28] transition tracking-wide"
+          >
+            Solicitar demo
+          </a>
+        </div>
+
+        <!-- Dispositivos de operación -->
+        <div class="bg-white rounded-2xl p-8 flex flex-col border border-[#2C2C2A]/8">
+          <div class="mb-6">
+            <p class="font-mono text-[#888780] text-[10px] tracking-[.22em] uppercase mb-3">Add-on · Por dispositivo</p>
+            <h3 class="font-serif italic text-[#2C2C2A] text-2xl leading-snug mb-2">Dispositivos de Operación</h3>
+            <p class="text-[#888780] text-sm leading-relaxed">
+              Activa un celular para gestionar un punto valet, mes a mes.
+            </p>
+          </div>
+
+          <div class="mb-8">
+            <div class="flex items-end gap-2">
+              <span class="font-mono text-[#D85A30] leading-none" style="font-size: 2.6rem;">$399</span>
+              <span class="font-mono text-[#888780] text-sm mb-1.5">MXN / mes</span>
+            </div>
+            <p class="font-mono text-[#888780] text-[10px] tracking-wide mt-1.5">por dispositivo</p>
+          </div>
+
+          <ul class="space-y-3.5 flex-1 mb-8">
+            {[
+              { label: 'Plan mensual de activación',          ok: true  },
+              { label: 'Permiso de uso ilimitado',            ok: true  },
+              { label: 'Autos ilimitados por dispositivo',    ok: true  },
+              { label: 'Dispositivo físico',                  ok: false },
+              { label: 'Plan de datos',                       ok: false },
+            ].map(({ label, ok }) => (
+              <li class="flex items-start gap-3">
+                {ok ? (
+                  <span class="w-4 h-4 rounded-full border border-[#1D9E75]/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#1D9E75] block"></span>
+                  </span>
+                ) : (
+                  <span class="font-mono text-[#888780]/35 text-sm leading-none mt-0.5 flex-shrink-0 w-4 text-center">—</span>
+                )}
+                <span class={`text-sm leading-snug ${ok ? 'text-[#2C2C2A]/80' : 'text-[#888780]/40 line-through'}`}>
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#demo"
+            class="border border-[#D85A30] text-[#D85A30] text-center px-6 py-3.5 rounded-sm font-semibold text-sm hover:bg-[#D85A30] hover:text-white transition tracking-wide"
+          >
+            Hablar con ventas
+          </a>
+        </div>
+
+        <!-- Dispositivo por día -->
+        <div class="bg-white rounded-2xl p-8 flex flex-col border border-[#2C2C2A]/8">
+          <div class="mb-6">
+            <p class="font-mono text-[#888780] text-[10px] tracking-[.22em] uppercase mb-3">Flexible · 24 horas</p>
+            <h3 class="font-serif italic text-[#2C2C2A] text-2xl leading-snug mb-2">Dispositivo por Día</h3>
+            <p class="text-[#888780] text-sm leading-relaxed">
+              Para eventos especiales o refuerzo temporal, sin compromiso mensual.
+            </p>
+          </div>
+
+          <div class="mb-8">
+            <div class="flex items-end gap-2">
+              <span class="font-mono text-[#D85A30] leading-none" style="font-size: 2.6rem;">$99</span>
+              <span class="font-mono text-[#888780] text-sm mb-1.5">MXN / día</span>
+            </div>
+            <p class="font-mono text-[#888780] text-[10px] tracking-wide mt-1.5">por dispositivo · 24 hrs</p>
+          </div>
+
+          <ul class="space-y-3.5 flex-1 mb-8">
+            {[
+              { label: 'Todo lo del plan mensual',      ok: true },
+              { label: 'Válido por 24 horas',           ok: true },
+              { label: 'Eventos especiales',            ok: true },
+              { label: 'Dispositivo de apoyo puntual',  ok: true },
+            ].map(({ label, ok }) => (
+              <li class="flex items-start gap-3">
+                <span class="w-4 h-4 rounded-full border border-[#1D9E75]/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#1D9E75] block"></span>
+                </span>
+                <span class="text-sm leading-snug text-[#2C2C2A]/80">{label}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#demo"
+            class="border border-[#2C2C2A]/20 text-[#2C2C2A] text-center px-6 py-3.5 rounded-sm font-semibold text-sm hover:border-[#2C2C2A] transition tracking-wide"
+          >
+            Solicitar activación
+          </a>
+        </div>
+
+      </div>
+
+      <p class="font-mono text-[#888780]/60 text-xs text-center mt-8">
+        Precios en MXN · IVA no incluido · Sin contrato de permanencia
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       7. DEMO FORM
+  ═══════════════════════════════════════════ -->
+  <section id="demo" class="bg-[#2C2C2A] py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: copy -->
+        <div class="md:sticky md:top-24">
+          <div class="flex items-center gap-3 mb-6">
+            <FobIsotipo variant="marker" class="opacity-60" />
+            <p class="font-mono text-[#888780] text-[11px] tracking-[.22em] uppercase">Demo gratuita</p>
+          </div>
+          <h2
+            class="font-serif italic text-[#F1EFE8] mb-5"
+            style="font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.15;"
+          >
+            15 minutos.<br/>Sin compromiso.
+          </h2>
+          <p class="text-[#888780] text-lg leading-relaxed mb-8">
+            Te mostramos el sistema funcionando con un caso real, respondemos tus dudas y — si convence — definimos el arranque contigo.
+          </p>
+          <ul class="space-y-4">
+            {[
+              'Sin presentación en PowerPoint.',
+              'Sin vendedor que no conoce el producto.',
+              'Sin contratos de permanencia.',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="font-mono text-[#D85A30] text-sm mt-0.5">—</span>
+                <span class="text-[#888780] leading-snug">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Right: form -->
+        <div class="bg-[#F1EFE8] rounded-2xl p-8 md:p-10">
+          <DemoForm client:load />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       8. FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="bg-[#2C2C2A] border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-14">
+
+      <div class="grid md:grid-cols-[1fr_auto_auto] gap-12 mb-12">
+
+        <!-- Logo + tagline -->
+        <div>
+          <img
+            src={`${import.meta.env.BASE_URL}brand/proparking-isotipo-color.svg.png`}
+            alt="ProParking"
+            class="h-10 w-auto mb-3"
+            style="mix-blend-mode: lighten; opacity: 0.88;"
+          />
+          <p class="text-[#888780] text-sm leading-relaxed max-w-xs">
+            Software de valet parking para negocios que exigen trazabilidad y control.
+          </p>
+        </div>
+
+        <!-- Columna: Producto -->
+        <div>
+          <p class="font-mono text-[#888780] text-[10px] tracking-[.2em] uppercase mb-5">Producto</p>
+          <ul class="space-y-3 text-sm text-[#888780]">
+            <li><a href="#como-funciona" class="hover:text-[#F1EFE8] transition">Cómo funciona</a></li>
+            <li><a href="#como-funciona" class="hover:text-[#F1EFE8] transition">Cómo funciona</a></li>
+            <li><a href="#para-el-dueno" class="hover:text-[#F1EFE8] transition">Panel de administrador</a></li>
+            <li><a href="#precios"       class="hover:text-[#F1EFE8] transition">Precios</a></li>
+            <li><a href="#demo"          class="hover:text-[#D85A30] transition">Solicitar demo</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna: Empresa -->
+        <div>
+          <p class="font-mono text-[#888780] text-[10px] tracking-[.2em] uppercase mb-5">Empresa</p>
+          <ul class="space-y-3 text-sm text-[#888780]">
+            <li><a href="#" class="hover:text-[#F1EFE8] transition">Nosotros</a></li>
+            <li><a href="#" class="hover:text-[#F1EFE8] transition">Aviso de privacidad</a></li>
+            <li><a href="#" class="hover:text-[#F1EFE8] transition">Términos de uso</a></li>
+            <li><a href="#" class="hover:text-[#F1EFE8] transition">Contacto</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-mono text-[#888780]/60 text-xs">
+          © 2026 ProParking · Digital Partner
+        </p>
+        <p class="font-mono text-[#888780]/60 text-xs">
+          Hecho en Culiacán, México.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+</Layout>
