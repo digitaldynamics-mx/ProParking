@@ -10,14 +10,15 @@ const {
   title = 'ProParking · Digital Partner',
   description = 'Sistema de valet parking para restaurantes, hoteles y plazas en México. Trazabilidad total: QR por llave, control de efectivo y evidencia fotográfica.',
 } = Astro.props;
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
 <html lang="es-MX">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+    <link rel="icon" type="image/svg+xml" href={`${b}/favicon.svg`} />
+    <link rel="icon" href={`${b}/favicon.ico`} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
